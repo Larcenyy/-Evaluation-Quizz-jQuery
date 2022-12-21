@@ -6,6 +6,8 @@ let quizData = [
     {"quest" : "🔴  Quelle ville a construit le premier métro ?", "choices" : ["La France", "Londres", "Le Portugal", "Amérique"] }
 ];
 
+
+
 let currentIndex = 0;
 let playerScore = 0;
 let countTime = 0;
