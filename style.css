@@ -1,0 +1,253 @@
+
+body {
+    margin: auto;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: auto;
+    background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
+
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+
+    25% {
+        transform: translateX(-25%);
+    }
+
+    50% {
+        transform: translateX(-50%);
+    }
+
+    75% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
+}
+.container{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.left{
+    width: 80%;
+}
+.right{
+    width: 20%;
+    background: #e1c84e;
+    display: flex;
+    flex-direction: column;
+    height: 98vh;
+}
+.top{
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.top h2{
+    font-size: 60px;
+    text-align: center;
+    border-radius: 7px;
+    background: #ffffff;
+    padding: 13px;
+}
+#start{
+    font-size: 4rem;
+    cursor: pointer;
+    border-radius: 7px;
+    border: none;
+    background: #ffffff;
+    color: #1e1b1b;
+    padding: 1rem;
+    font-weight: bold;
+    margin-top: 15rem;
+    transition: 0.3s;
+    opacity: 0.7;
+    animation-name: start;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+}
+#start:hover{
+    opacity: 1;
+}
+@keyframes start {
+    0%{
+        scale: 1;
+    }
+    50%{
+        scale: 1.2;
+    }
+    100%{
+        scale: 1;
+    }
+}
+.active{
+    background-color: rgba(255, 255, 255, 0.99);
+    opacity: 1;
+}
+
+.start{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.game{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8rem;
+}
+.game h5{
+    border-radius: 7px;
+    background: #ffffff;
+    padding: 1rem;
+    font-size: 2.5rem;
+    box-shadow: 0px 3px 10px 0px black;
+}
+#quest{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.game h5:after{
+    content: "Quelle est la bonne réponse.. 🤥";
+    font-size: 1.9rem;
+}
+span{
+    font-size: 3rem;
+    padding: 1rem;
+    background-color: rgb(255 255 255 / 30%);
+    opacity: 0.6;
+    cursor: pointer;
+    transition: 0.3s;
+}
+span:hover{
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.84);
+}
+
+#confirm{
+    background-color: rgb(255 255 255 / 30%);
+    border: none;
+    color:white;
+    font-size: 2rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.2s;
+}
+#confirm:hover{
+    opacity: 1;
+    color:black;
+    background-color: rgba(255, 255, 255, 0.84);
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+@media screen and (max-width: 1205px){
+    .top h2{
+        font-size: 35px;
+    }
+    .game h5 {
+        font-size: 16px;
+    }
+    .game h5:after{
+        font-size: 18px;
+    }
+    #list-content{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: -20rem;
+    }
+
+
+@media screen and (max-width: 775px) {
+    .top h2 {
+        font-size: 35px;
+    }
+
+    .game h5 {
+        font-size: 16px;
+    }
+
+    .game h5:after {
+        font-size: 18px;
+    }
+
+    #list-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-top: -20rem;
+    }
+
+    @media screen and (max-width: 425px) {
+        .top h2 {
+            font-size: 35px;
+        }
+
+        .game h5 {
+            font-size: 16px;
+        }
+
+        .game h5:after {
+            font-size: 18px;
+        }
+
+        #list-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: -20rem;
+        }
+    }
+}
+}
