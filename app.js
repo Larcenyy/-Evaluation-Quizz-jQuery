@@ -24,12 +24,17 @@ $('span').click(function (){
     $(this).toggleClass("active")
 })
 // console.log(quizData[3].choices[2])
-function startGame() {
+
+
+function startTimer() {
     setInterval(function (){
         countTime++;
         console.log(countTime)
     }, 1000)
+}
 
+function startGame() {
+    startTimer()
 
     let obj = quizData[currentIndex];
     $('#quest').text(obj.quest)
@@ -42,7 +47,6 @@ function startGame() {
 
     $('#confirm').click(function (){
         if (currentIndex === 0 && four.hasClass('active') || currentIndex === 1 && two.hasClass('active') || currentIndex === 2 && four.hasClass('active') || currentIndex === 3 && two.hasClass('active') || currentIndex === 4 && one.hasClass('active')){
-            alert("good word")
             $("#info").html('✅').css('font-size', '50px')
             playerScore++
             currentIndex++
@@ -50,7 +54,6 @@ function startGame() {
             startGame()
         }
         else{
-            alert('bad words')
             currentIndex++;
             startGame()
         }
