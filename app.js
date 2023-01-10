@@ -10,7 +10,7 @@ let quizData = [
 
 let currentIndex = 0;
 let playerScore = 0;
-let countTime = 0;
+let countTime = 60;
 
 $(".game").css('display', "none")
 
@@ -18,6 +18,20 @@ $("#start").click(function (){
     $(".game").css('display', "flex")
     $(".start").css('display', "none")
     startGame()
+    let time = document.getElementById("timer")
+
+    setInterval(function (){
+        if(countTime > 0){
+            countTime--;
+            console.log(countTime)
+            time.innerHTML = "" + countTime;
+            time.innerHTML = "Temps : " + countTime;
+        }
+        else if (countTime === 0){
+            alert("Quel dommage, pas assez rapide, la page va se recharger..")
+            location.reload()
+        }
+    }, 1000)
 })
 
 $('span').click(function (){
@@ -25,12 +39,7 @@ $('span').click(function (){
 })
 // console.log(quizData[3].choices[2])
 function startGame() {
-    setInterval(function (){
-        countTime++;
-        console.log(countTime)
-    }, 1000)
-
-
+    console.log(currentIndex)
     let obj = quizData[currentIndex];
     $('#quest').text(obj.quest)
     let four = $('#four').text(obj.choices[0])
@@ -40,20 +49,62 @@ function startGame() {
 
     $("#info").html('').css('font-size', '50px')
 
-    $('#confirm').click(function (){
-        if (currentIndex === 0 && four.hasClass('active') || currentIndex === 1 && two.hasClass('active') || currentIndex === 2 && four.hasClass('active') || currentIndex === 3 && two.hasClass('active') || currentIndex === 4 && one.hasClass('active')){
-            alert("good word")
+    $('#confirm').off('click').click(function (){
+        if (currentIndex === 0 && four.hasClass('active')) {
             $("#info").html('✅').css('font-size', '50px')
+            alert("good word")
             playerScore++
             currentIndex++
-            console.log(playerScore)
+            countTime+=10;
             startGame()
         }
-        else{
-            alert('bad words')
+        else if (currentIndex === 1 && two.hasClass('active')) {
+            $("#info").html('✅').css('font-size', '50px')
+            alert("good word")
+            playerScore++
+            countTime+=10;
+            currentIndex++
+            startGame()
+        }
+        else if (currentIndex === 2 && four.hasClass('active')) {
+            $("#info").html('✅').css('font-size', '50px')
+            alert("good word")
+            playerScore++
+            currentIndex++
+            countTime+=10;
+            startGame()
+        }
+        else if (currentIndex === 3 && two.hasClass('active')) {
+            $("#info").html('✅').css('font-size', '50px')
+            alert("good word")
+            playerScore++
+            currentIndex++
+            countTime+=10;
+            startGame()
+        }
+        else if (currentIndex === 4 && two.hasClass('active')) {
+            $("#info").html('✅').css('font-size', '50px')
+            alert("good word")
+            playerScore++
+            currentIndex++
+            countTime+=10;
+            alert(playerScore)
+            startGame()
+        }
+        else if (currentIndex === 5 && one.hasClass('active')) {
+            $("#info").html('✅').css('font-size', '50px')
+            alert("good word")
+            playerScore++
+            currentIndex++
+            countTime+=10;
+            alert(playerScore)
+            startGame()
+        }
+        else {
             currentIndex++;
+            alert("bad word")
             startGame()
         }
-        console.log(currentIndex)
-    })
+    });
 }
+
