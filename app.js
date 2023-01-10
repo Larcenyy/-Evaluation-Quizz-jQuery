@@ -102,7 +102,7 @@ function startGame() {
         }
         else {
             currentIndex++;
-            alert("bad word")
+            alert("bad words")
             startGame()
         }
     });
